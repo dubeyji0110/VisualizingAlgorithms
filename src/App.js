@@ -1,25 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import { Button } from "@material-ui/core";
+import React, { useState } from "react";
+import "./App.css";
+import Heading from "./Components/Heading";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	
+	const [ds, setDs] = useState("sorting");
+
+	return (
+		<main className='app'>
+			<header>
+				<Heading />
+			</header>
+			<div className='link'>
+				<a
+					href='https://github.com/dubeyji0110/VisualizingAlgorithms/'
+					target='_blank'
+					rel='noreferrer'>
+					<i className='fab fa-github'></i> Github Repo {"</>"}
+				</a>
+			</div>
+			<section>
+				<div>
+					<Button
+						onClick={() => setDs("sorting")}
+						type='button'
+						className={
+							ds === "sorting" ? "selectedBtn" : "unselectedBtn"
+						}>
+						Sorting
+					</Button>
+					<Button
+						onClick={() => setDs("tree")}
+						type='button'
+						className={
+							ds === "tree" ? "selectedBtn" : "unselectedBtn"
+						}>
+						Binary Search Tree
+					</Button>
+				</div>
+
+			</section>
+		</main>
+	);
 }
 
 export default App;
