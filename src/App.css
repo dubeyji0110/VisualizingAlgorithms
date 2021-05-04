@@ -1,13 +1,116 @@
-.link{
-    text-align: center;
+.link {
+	text-align: center;
 }
 
-.link a{
-    color: #5f6dac;
-    text-decoration: none;
-    font-weight: 200;
+.link a {
+	color: #5f6dac;
+	text-decoration: none;
+	font-weight: 200;
 }
 
-.link a:hover{
-    color: aliceblue;
+.link a:hover {
+	color: aliceblue;
+}
+
+.buttons{
+    margin-top: 60px;
+    margin-bottom: 10px;
+    padding-left: 170px;
+}
+
+.buttons .selectedBtn{
+    margin-right: 10px;
+    background: #ffef11 !important;
+}
+.buttons .unselectedBtn{
+    margin-right: 10px;
+    border: 2px solid #ffef11 !important;
+    color: #fff;
+}
+
+.container1 {
+	display: flex;
+	height: 60vh;
+    width: 80%;
+    margin: auto;
+    animation-name: slideInFromLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+}
+
+.left {    
+    background-color: #f7b42c;
+    background-image: linear-gradient(315deg, #f7b42c 0%, #fc575e 74%);
+	display: flex;
+	flex: 1.6;
+	justify-content: center;
+    padding: 0 10px;
+    padding-left: 5px;
+    border-radius: 10px 0 0 10px;
+}
+
+.right {
+    background-color: #463657;
+    background-image: linear-gradient(315deg, #53475f 0%, #5f6dac 74%);
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+    justify-content: center;
+    border-radius: 0 10px 10px 0;
+    padding: 0 50px;
+}
+
+.MuiSlider-rail,
+.MuiSlider-track {
+	height: 4px !important;
+}
+
+.MuiSlider-thumb {
+	width: 15px !important;
+	height: 15px !important;
+}
+
+.MuiSlider-root{
+    color: #f7b42c !important;
+}
+
+#dropdown-basic{
+    font-size: 20px;
+    background-color: cadetblue;
+    border: none;
+    font-weight: 300;
+}
+
+.lower123{
+    display: flex;
+    margin-top: 50px;
+    justify-content: space-around;
+}
+
+.rightUp{
+    margin-top: -35px;
+    margin-bottom: 20px;
+}
+
+.btn-123{
+    background: red !important;
+    color: white !important;
+    font-size: 20px !important;
+}
+
+.sort{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+@keyframes slideInFromLeft{
+0% {
+    transform: translateX(-20%);
+    opacity: 0;
+}
+100% {
+    transform: translateX(0);
+    opacity: 1;
+}
 }

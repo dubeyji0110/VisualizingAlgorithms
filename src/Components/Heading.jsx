@@ -4,7 +4,8 @@ import Typewriter from "typewriter-effect";
 const styleHeading = {
     fontSize: "2.5rem",
 	textAlign: "center",
-	color: "antiquewhite"
+	color: "antiquewhite",
+	marginTop: "70px"
 }
 
 function Heading() {
