@@ -84,7 +84,7 @@
 .lower123{
     display: flex;
     margin-top: 50px;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .rightUp{
