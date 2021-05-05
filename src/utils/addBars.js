@@ -20,8 +20,8 @@ const addBars = barList => {
     let tmpBarList = [];
     for (let i = 0; i < barList.length; i++){
         tmpBarList.push(
-            <AnimateHeight duration={500} height={barList[i]["barHeight"]}>
-                <div className="bar" style={barStyle(barList[i]["barColor"], barList[i]["barHeight"])} key={i}>
+            <AnimateHeight duration={500} height={barList[i]["barHeight"]} key={i}>
+                <div className="bar" style={barStyle(barList[i]["barColor"], barList[i]["barHeight"])}>
                     {barList[i]["barHeight"]}
                 </div>
             </AnimateHeight>

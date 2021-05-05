@@ -1,11 +1,11 @@
 import { Button } from "@material-ui/core";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import BST from "./Components/BST";
 import Heading from "./Components/Heading";
 import Sorting from "./Components/Sorting";
 import addBars from "./utils/addBars";
-import { getRandomInt } from "./utils/functions";
+import { getRandomInt, timeout } from "./utils/functions";
 
 function App() {
 	const [ds, setDs] = useState("sorting");
@@ -14,6 +14,8 @@ function App() {
 	const [delay, setDelay] = useState(400);
 	const [currentAlgo, setCurrentAlgo] = useState("BubbleSort");
 	const [deactivate, setDeactivate] = useState(false);
+	
+	useEffect(() => addElements(), [numberOfBars]);
 
 	const onChangeAlgo = (algo) => {
 		setCurrentAlgo(algo);
@@ -26,6 +28,10 @@ function App() {
 	const sorting = () => {
 		if (!deactivate) {
 			if (currentAlgo === "BubbleSort") return bubblesort;
+			else if (currentAlgo === "QuickSort") return null;
+			else if (currentAlgo === "InsertionSort") return null;
+		} else {
+			return null;
 		}
 	};
 
@@ -59,12 +65,22 @@ function App() {
 		for (let i = 0; i < length; i++) {
 			for (let j = 0; j < length - i - 1; j++) {
 				if (items[j]["barHeight"] > items[j + 1]["barHeight"]) {
+					items[j]["barColor"] = "#91d3e3";
+					items[j+1]["barColor"] = "#91d3e3";
+					
 					let t = items[j]["barHeight"];
 					items[j]["barHeight"] = items[j + 1]["barHeight"];
 					items[j + 1]["barHeight"] = t;
 				}
+				await timeout(delay);
+				items[j]["barColor"] = "beige";
+				items[j+1]["barColor"] = "#91e395";
 				setBarList(items);
 			}
+		}
+		items = barList;
+		for (let i = 0; i < length; i++){
+			// items[i]["barColor"] = "beige";
 		}
 		setBarList(items);
 		setDeactivate(false);
@@ -103,7 +119,6 @@ function App() {
 				{ds === "sorting" ? (
 					<Sorting
 						numberOfBars={numberOfBars}
-						barList={barList}
 						onChangeAlgo={onChangeAlgo}
 						onChangeSpeed={onChangeSpeed}
 						Sort={sorting()}

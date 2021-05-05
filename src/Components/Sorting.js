@@ -6,20 +6,18 @@ import "../App.css";
 function Sorting({
 	numberOfBars,
 	addBars,
-	barList,
 	slider,
 	Sort,
 	onChangeAlgo,
 	onChangeSpeed,
 }) {
-
 	const [currentAlgo, setCurrentAlgo] = useState("BubbleSort");
 	const [delay, setDelay] = useState(400);
 
-	const changeAlgo = algo => {
+	const changeAlgo = (algo) => {
 		setCurrentAlgo(algo);
 		onChangeAlgo(currentAlgo);
-	}
+	};
 
 	const showSpeed = () => {
 		if (delay === 600) {
@@ -29,16 +27,33 @@ function Sorting({
 		} else {
 			return "Fast";
 		}
-	}
+	};
+
+	const setsDelay = (time) => {
+		setDelay(time);
+		onChangeSpeed(time);
+	};
 
 	return (
 		<main className='container1'>
 			<div className='left'>{addBars}</div>
 			<div className='right'>
 				<div className='rightUp'>
-					<span style={{color: "white", fontSize:"18px", fontWeight: "200"}}>Slide to add or delete bars, </span>
-					<span className='badge badge-success' style={{fontSize:"15px"}}>
-						Currently <span className='badge-light badge'>{numberOfBars}</span>
+					<span
+						style={{
+							color: "white",
+							fontSize: "18px",
+							fontWeight: "200",
+						}}>
+						Slide to add or delete bars,{" "}
+					</span>
+					<span
+						className='badge badge-success'
+						style={{ fontSize: "15px" }}>
+						Currently{" "}
+						<span className='badge-light badge'>
+							{numberOfBars}
+						</span>
 					</span>
 				</div>
 				<div className='rightDown'>
@@ -46,7 +61,7 @@ function Sorting({
 						valueLabelDisplay='auto'
 						max={18}
 						min={2}
-						defaultValue={numberOfBars}
+						value={numberOfBars}
 						onChange={slider}
 					/>
 					<div className='lower123'>
@@ -90,17 +105,17 @@ function Sorting({
 								<Dropdown.Menu>
 									<Dropdown.Item
 										as='button'
-										onClick={() => setDelay(600)}>
+										onClick={() => setsDelay(600)}>
 										Slow
 									</Dropdown.Item>
 									<Dropdown.Item
 										as='button'
-										onClick={() => setDelay(400)}>
+										onClick={() => setsDelay(400)}>
 										Medium
 									</Dropdown.Item>
 									<Dropdown.Item
 										as='button'
-										onClick={() => setDelay(200)}>
+										onClick={() => setsDelay(200)}>
 										Fast
 									</Dropdown.Item>
 								</Dropdown.Menu>
@@ -108,9 +123,11 @@ function Sorting({
 						</div>
 					</div>
 				</div>
-					<div className="sort">
-						<Button type="button" className="btn-123">SORT</Button>
-					</div>
+				<div className='sort'>
+					<Button type='button' className='btn-123' onClick={Sort}>
+						SORT
+					</Button>
+				</div>
 			</div>
 		</main>
 	);

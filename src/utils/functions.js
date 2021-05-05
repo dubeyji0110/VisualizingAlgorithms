@@ -5,5 +5,5 @@ export const getRandomInt = (min, max) => {
 };
 
 export const timeout = (ms) => {
-	return new Promise((resolve) => setTimeout(resolve, ms));
+	return new Promise((res) => setTimeout(res, ms));
 };
