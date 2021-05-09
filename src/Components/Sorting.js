@@ -5,7 +5,7 @@ import "../App.css";
 
 function Sorting({
 	numberOfBars,
-	addBars,
+	Bars,
 	slider,
 	Sort,
 	onChangeAlgo,
@@ -36,7 +36,7 @@ function Sorting({
 
 	return (
 		<main className='container1'>
-			<div className='left'>{addBars}</div>
+			<div className='left'>{Bars}</div>
 			<div className='right'>
 				<div className='rightUp'>
 					<span
