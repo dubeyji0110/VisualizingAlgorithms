@@ -1,21 +1,23 @@
 import { Button } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import BST from "./Components/BST";
+import BSTcomp from "./Components/BSTcomp";
 import Heading from "./Components/Heading";
 import Sorting from "./Components/Sorting";
 import addBars from "./utils/addBars";
 import { getRandomInt, timeout } from "./utils/functions";
 
 function App() {
-	const [ds, setDs] = useState("sorting");
+	const [ds, setDs] = useState("tree");
 	const [barList, setBarList] = useState([]);
 	const [numberOfBars, setNumberOfBars] = useState(13);
 	const [delay, setDelay] = useState(400);
 	const [currentAlgo, setCurrentAlgo] = useState("BubbleSort");
 	const [deactivate, setDeactivate] = useState(false);
-	
-	useEffect(() => addElements(), [numberOfBars]);
+
+	useEffect(() => {
+		addElements();
+	}, [numberOfBars]);
 
 	const onChangeAlgo = (algo) => {
 		setCurrentAlgo(algo);
@@ -59,31 +61,7 @@ function App() {
 
 	// bubblesort
 	const bubblesort = async () => {
-		setDeactivate(true);
-		let items = barList;
-		let length = items.length;
-		for (let i = 0; i < length; i++) {
-			for (let j = 0; j < length - i - 1; j++) {
-				if (items[j]["barHeight"] > items[j + 1]["barHeight"]) {
-					items[j]["barColor"] = "#91d3e3";
-					items[j+1]["barColor"] = "#91d3e3";
-					
-					let t = items[j]["barHeight"];
-					items[j]["barHeight"] = items[j + 1]["barHeight"];
-					items[j + 1]["barHeight"] = t;
-				}
-				await timeout(delay);
-				items[j]["barColor"] = "beige";
-				items[j+1]["barColor"] = "#91e395";
-				setBarList(items);
-			}
-		}
-		items = barList;
-		for (let i = 0; i < length; i++){
-			// items[i]["barColor"] = "beige";
-		}
-		setBarList(items);
-		setDeactivate(false);
+
 	};
 
 	return (
@@ -99,7 +77,7 @@ function App() {
 					<i className='fab fa-github'></i> Github Repo {"</>"}
 				</a>
 			</div>
-			<section className="buttons">
+			<section className='buttons'>
 				<Button
 					onClick={() => setDs("sorting")}
 					type='button'
@@ -122,11 +100,11 @@ function App() {
 						onChangeAlgo={onChangeAlgo}
 						onChangeSpeed={onChangeSpeed}
 						Sort={sorting()}
-						addBars={addBars(barList)}
+						Bars={addBars(barList)}
 						slider={handleChange}
 					/>
 				) : (
-					<BST />
+					<BSTcomp />
 				)}
 			</section>
 		</main>

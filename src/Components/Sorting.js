@@ -1,11 +1,12 @@
 import { Button, Slider } from "@material-ui/core";
 import { Dropdown } from "react-bootstrap";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../App.css";
+import addBars from "../utils/addBars";
 
 function Sorting({
 	numberOfBars,
-	addBars,
+	Bars,
 	slider,
 	Sort,
 	onChangeAlgo,
@@ -36,7 +37,7 @@ function Sorting({
 
 	return (
 		<main className='container1'>
-			<div className='left'>{addBars}</div>
+			<div className='left'>{Bars}</div>
 			<div className='right'>
 				<div className='rightUp'>
 					<span
