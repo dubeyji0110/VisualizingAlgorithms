@@ -8,7 +8,7 @@ import addBars from "./utils/addBars";
 import { getRandomInt, timeout } from "./utils/functions";
 
 function App() {
-	const [ds, setDs] = useState("sorting");
+	const [ds, setDs] = useState("tree");
 	const [barList, setBarList] = useState([]);
 	const [numberOfBars, setNumberOfBars] = useState(13);
 	const [delay, setDelay] = useState(400);

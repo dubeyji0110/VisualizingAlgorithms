@@ -1,7 +1,8 @@
 import { Button, Slider } from "@material-ui/core";
 import { Dropdown } from "react-bootstrap";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../App.css";
+import addBars from "../utils/addBars";
 
 function Sorting({
 	numberOfBars,
