@@ -2,7 +2,6 @@ import { Button, Slider } from "@material-ui/core";
 import { Dropdown } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
 import "../App.css";
-import addBars from "../utils/addBars";
 
 function Sorting({
 	numberOfBars,
@@ -15,9 +14,12 @@ function Sorting({
 	const [currentAlgo, setCurrentAlgo] = useState("BubbleSort");
 	const [delay, setDelay] = useState(400);
 
+	useEffect(() => {
+		onChangeAlgo(currentAlgo);
+	}, [currentAlgo]);
+
 	const changeAlgo = (algo) => {
 		setCurrentAlgo(algo);
-		onChangeAlgo(currentAlgo);
 	};
 
 	const showSpeed = () => {
@@ -80,6 +82,13 @@ function Sorting({
 											changeAlgo("BubbleSort")
 										}>
 										BubbleSort
+									</Dropdown.Item>
+									<Dropdown.Item
+										as='button'
+										onClick={() =>
+											changeAlgo("SelectionSort")
+										}>
+										SelectionSort
 									</Dropdown.Item>
 									<Dropdown.Item
 										as='button'
