@@ -144,7 +144,7 @@ class App extends React.Component {
 		delay: 400,
 		currentAlgo: "BubbleSort",
 		deactivate: false,
-		ds: "sorting",
+		ds: "tree",
 	};
 
 	componentDidMount() {

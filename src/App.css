@@ -90,6 +90,7 @@
 .rightUp{
     margin-top: -35px;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .btn-123{
@@ -148,4 +149,9 @@
     justify-content: space-around;
     flex-direction: row;
     margin-top: -10px;
+}
+
+.btn-321{
+    background: red !important;
+    color: white !important;
 }
